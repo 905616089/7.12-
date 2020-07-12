@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object方法</title>
+</head>
+
+<body>
+    <script>
+        // 拼接assign
+        var obj1 = { name: "杨卓乐" };
+        var obj2 = { age: 21 };
+        var obj3 = {
+            say: function () {
+                console.log("说话");
+            }
+        }
+
+        console.log(Object.assign(obj1, obj2, obj3));
+        console.log(obj1, obj2);
+
+        //对象拷贝
+        var obj = { name: "杨卓乐", age: 21 };
+        var newObj = Object.assign({}, obj);
+        console.log(newObj)
+
+
+        //判断两个值是否相同 === is
+        Object.is(+0, -0);
+        Object.is(NaN, NaN);
+
+        //  obj.prototype.isPrototypeOf(b);确定一个对象是否存在于另一个对象的原型链中
+        function a() {
+
+        }
+        var b = new a();
+        console.log(a.prototype.isPrototypeOf(b));
+
+        //直接在一个对象上定义一个新属性Object.defineProperty(obj, prop, descriptor)
+        var obj4 = new Object();
+        Object.defineProperty(obj4, "name", {
+            configurable: false,
+            writable: true,
+            enumerable: true,
+            value: "杨卓乐",
+        })
+        console.log(obj4.name);
+
+        // 直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。Object.defineProperties()
+        var obj5 = new Object();
+        Object.defineProperties(obj5, {
+            name: {
+                value: "杨卓乐",
+                configurable: false,
+                writable: true,
+                enumerable: true,
+            },
+            age: {
+                value: 18,
+                configurable: false,
+                writable: true,
+                enumerable: true,
+            }
+        })
+        console.log(obj5.name, obj5.age)
+
+        // 阻止修改现有属性的特性和值，并阻止添加新属性。Object.freeze(obj)
+        var obj6 = { name: "杨卓乐", age: 18 };
+        Object.freeze(obj6);
+        obj6.name = "李四";
+        obj6.age = 21;
+        console.log(obj6.name, obj.age);
+
+
+        // for in 循环
+        var obj7 = {
+            name: "杨卓乐",
+            age: 18,
+            says: function () {
+                console.log("你好");
+            }
+        }
+        for (var i in obj7) {
+            console.log(obj7[i]);
+        }
+
+        //  Object.keys(obj)枚举属性的键名，如果是数字从小到大排列
+
+        var obj8 = { a: 545, b: 445 };
+        console.log(Object.keys(obj8));
+
+        var obj9 = { [56]: "a", 646: "b", 1: "sd" };
+        console.log(Object.keys(obj9));
+
+        var obj10 = Object.create({}, {
+            getFoo: { value: function () { return this.foo } }
+        });
+        obj10.foo = 1;
+        console.log(Object.keys(obj10));
+
+        // Object.getOwnPropertyNames(obj);不包含Sysmbol
+        var id=Symbol("id");
+        var obj11 = {
+            [id]: 'symbol',
+            age:21,
+        };
+        console.log(Object.getOwnPropertyNames(obj11));
+        //Object.getOwnPropertySymbols(obj);包含所有的Sysmbol属性
+        console.log(Object.getOwnPropertySymbols(obj11));
+        // Reflect.ownKeys(obj);
+        console.log(Reflect.ownKeys(obj11));
+        //Object.values(obj)
+        console.log(Object.values(obj11));
+    </script>
+</body>
+
+</html>

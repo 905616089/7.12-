@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = -11;
+        var y = 12;
+        var a = 3.12;
+        var s = 4;
+        var d = 2;
+
+        //返回绝对值.abs
+        console.log(Math.abs(x));
+        // 四舍五入取整.round
+        console.log(Math.round(a));
+        //向上取整.ceil
+        console.log(Math.ceil(a));
+        //向下取整.floor
+        console.log(Math.floor(a));
+        //x,y中最大值max
+        console.log(Math.max(x, y));
+        //x,y 中的最小值min
+        console.log(Math.min(x, y));
+        //返回随机数0~1
+        console.log(Math.random());
+        //将x的小数部分去除，返回整数部分
+        console.log(Math.trunc(a));
+        //s的d次幂
+        console.log(Math.pow(s, d));
+        //返回x的平方根sqrt
+        console.log(Math.sqrt(s));
+        //正弦
+        console.log(Math.sin(x));
+        //余弦
+        console.log(Math.cos(x));
+        //正切
+        console.log(Math.tan(x));
+        //反正弦
+        console.log(Math.asin(x));
+        //反余弦
+        console.log(Math.acos(x));
+        //反正切
+        console.log(Math.atan(x));
+        ///可把Number四舍五入为指定位数的数字
+        console.log(a.toFixed(1));
+
+
+        //取次方根
+        console.log(Math.pow(y, 1 / y));
+        //查找数组中最大、最小的数
+        var arr = [78, 2, 544, 4564, 1, 13];
+        var max = Math.max(...arr);
+        var min = Math.min(...arr);
+        console.log(max);
+        console.log(min);
+
+        //在x，y之间随机取之整
+        var o=Math.floor(Math.random() * (y - x) + x);      
+        var b=Math.floor(Math.random() * (y - x + 1) + x);
+        console.log(o);
+        console.log(b);
+    </script>
+</body>
+
+</html>
